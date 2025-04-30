@@ -42,8 +42,6 @@ class AuthController extends Controller
          $token = $user->createToken('auth_token')->plainTextToken;
          return response()->json(['access_token' => $token, 'token_type' => 'Bearer', 'user' => new UserResource($user)], 201);
 
-        // O simplemente devolver el usuario creado (sin loguear)
-        // return response()->json(new UserResource::collection($user), 201);
     }
 
     public function login(Request $request): JsonResponse
